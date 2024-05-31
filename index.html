@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="master" width="500px" height="300px">
+
+    </canvas>
+
+    <script>
+        const my_canvas = document.getElementById('master');
+        const ctx = my_canvas.getContext("2d");
+        
+      function drawSquare(x,y) {
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+        ctx.lineTo(x+50, y);
+        ctx.lineTo(x+50, y+50);
+        ctx.lineTo(x, y+50);
+        ctx.closePath()
+        ctx.stroke();
+      }
+       let start_x = 0;
+       let start_y = 0;
+
+     function draw() {
+        start_x += 0.1;
+        start_y += 0.2;
+        ctx.clearRect(0, 0, 500, 300);
+        drawSquare(start_x,start_y);
+        window.requestAnimationFrame(draw);
+     }
+
+     draw();
+
+     
+
+
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>
